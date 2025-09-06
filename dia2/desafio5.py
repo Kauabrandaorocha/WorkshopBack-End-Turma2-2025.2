@@ -9,7 +9,7 @@ class Animal:
         return "Vozes dos animais"
 
     def apresentar(self):
-        return f"Nome: {self.nome} \n Idade: {self.idade}"
+        return f"Nome: {self.nome}\nIdade: {self.idade}"
 
 
 class Gato(Animal): 
@@ -27,3 +27,17 @@ class Cachorro(Animal):
 
     def falar(self):
         return "Au Au"
+    
+recebeClasse = Gato(str(input("Digite o nome do gato: ")), int(input("Digite a idade dele: ")))
+recebeMetodo = recebeClasse.apresentar()
+recebeMetodo2 = recebeClasse.falar()
+
+print(recebeMetodo)
+print(recebeMetodo2)
+
+recebeClasse = Cachorro(str(input("Digite o nome do cachorro: ")), int(input("Digite a idade dele: ")))
+recebeMetodo = recebeClasse.apresentar()
+recebeMetodo2 = recebeClasse.falar()
+
+print(recebeMetodo)
+print(recebeMetodo2)
