@@ -5,7 +5,7 @@ class Animal:
         self.idade = idade
         pass
 
-    def falar():
+    def falar(self):
         return "Vozes dos animais"
 
     def apresentar(self):
