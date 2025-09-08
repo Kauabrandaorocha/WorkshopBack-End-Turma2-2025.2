@@ -61,7 +61,7 @@ class Vaca(Animal):
         return "Muuu"
 
 zoo = Zoologico()
-zoo.adicionarAnimal(Gato("Mingau", 2))
+zoo.adicionarAnimal(Gato("Maggie", 4))
 zoo.adicionarAnimal(Cachorro("Rex", 4))
 zoo.adicionarAnimal(Vaca("Mimosa", 5))
 
