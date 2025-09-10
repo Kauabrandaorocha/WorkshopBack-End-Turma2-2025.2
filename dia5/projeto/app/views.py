@@ -22,6 +22,7 @@ class EnderecoFormView(FormView):
         cep = form.cleaned_data['cep'].replace("-", "").strip()
         url = f"https://viacep.com.br/ws/{cep}/json/"
         response = requests.get(url)
+        success_url = reverse_lazy('listar_endereco')
 
         if response.status_code == 200:
             data = response.json()
@@ -29,10 +30,10 @@ class EnderecoFormView(FormView):
                 cep_obj, created = EnderecoCep.objects.update_or_create(
                     cep=cep,
                     default={
-                        "logradouro": data.get("logradouro"),
+                        "rua": data.get("logradouro"),
                         "bairro": data.get("bairro"),
-                        "localidade": data.get("localidade"),
-                        "uf": data.get("uf")
+                        "cidade": data.get("localidade"),
+                        "estado": data.get("uf")
                     }
                 )
             else:

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Detalhes do Endereço</h2>
+
+    <p><strong>Logradouro:</strong> {{ cep.logradouro }}</p>
+    <p><strong>Bairro:</strong> {{ cep.bairro }}</p>
+    <p><strong>Cidade:</strong> {{ cep.localidade }}</p>
+    <p><strong>Estado:</strong> {{ cep.uf }}</p>
+    <p><strong>CEP:</strong> {{ cep.cep }}</p>
+
+    <br>
+    <a href="{% url 'listar_endereco' %}">Ver Lista de Endereços</a> |
+    <a href="{% url 'form_endereco' %}">Consultar Outro CEP</a>
+{% endblock %}

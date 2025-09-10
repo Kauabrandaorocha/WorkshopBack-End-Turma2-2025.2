@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Confirmar Exclusão</h2>
+
+    <p>Deseja realmente excluir o endereço abaixo?</p>
+
+    <p><strong>{{ object.logradouro }}, {{ object.bairro }}, {{ object.localidade }} - {{ object.uf }} ({{ object.cep }})</strong></p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Excluir</button>
+        <a href="{% url 'listar_endereco' %}">Cancelar</a>
+    </form>
+{% endblock %}

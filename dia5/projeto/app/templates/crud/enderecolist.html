@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Endereços Cadastrados</h2>
+
+    {% if ceps %}
+        <ul>
+            {% for cep in ceps %}
+                <li>
+                    {{ cep.logradouro }}, {{ cep.bairro }} - {{ cep.localidade }}/{{ cep.uf }} ({{ cep.cep }})
+                    |
+                    <a href="{% url 'detail_endereco' cep.pk %}">Detalhes</a>
+                    |
+                    <a href="{% url 'delete_endereco' cep.pk %}">Excluir</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum endereço cadastrado ainda.</p>
+    {% endif %}
+{% endblock %}
