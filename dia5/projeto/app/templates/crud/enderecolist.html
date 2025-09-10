@@ -7,7 +7,7 @@
         <ul>
             {% for cep in ceps %}
                 <li>
-                    {{ cep.logradouro }}, {{ cep.bairro }} - {{ cep.localidade }}/{{ cep.uf }} ({{ cep.cep }})
+                    {{ cep.rua }}, {{ cep.bairro }} - {{ cep.cidade }}/{{ cep.estado }} ({{ cep.cep }})
                     |
                     <a href="{% url 'detail_endereco' cep.pk %}">Detalhes</a>
                     |
