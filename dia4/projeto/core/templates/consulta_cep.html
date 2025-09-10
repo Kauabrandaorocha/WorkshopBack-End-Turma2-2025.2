@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Resposta ao usuário</title>
 </head>
 <body>
     <h1>Endereço encontrado</h1>
@@ -14,7 +14,7 @@
         <p><strong>Bairro:</strong> {{ endereco.bairro }}</p>
         <p><strong>Cidade:</strong> {{ endereco.cidade }}</p>
         <p><strong>Estado:</strong> {{ endereco.estado }}</p>
-    {& else &}
+    {% else %}
         <p>Nenhum endereço encontrado para o CEP informado.</p>
     {% endif %}
 
