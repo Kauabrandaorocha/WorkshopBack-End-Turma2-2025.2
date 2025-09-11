@@ -17,23 +17,24 @@ class EnderecoListView(ListView):
 class EnderecoFormView(FormView):
     template_name = 'crud/enderecoform.html'
     form_class = EnderecoCepForm
+    success_url = reverse_lazy('listar_endereco')
 
     def form_valid(self, form):
         cep = form.cleaned_data['cep'].replace("-", "").strip()
         url = f"https://viacep.com.br/ws/{cep}/json/"
         response = requests.get(url)
-        success_url = reverse_lazy('listar_endereco')
 
         if response.status_code == 200:
             data = response.json()
             if "erro" not in data:
                 cep_obj, created = EnderecoCep.objects.update_or_create(
                     cep=cep,
-                    default={
+                    defaults={
+                        "cep": data.get("cep"),
                         "rua": data.get("logradouro"),
                         "bairro": data.get("bairro"),
                         "cidade": data.get("localidade"),
-                        "estado": data.get("uf")
+                        "estado": data.get("uf"),
                     }
                 )
             else:
@@ -43,6 +44,7 @@ class EnderecoFormView(FormView):
             form.add_error("cep", "CEP consultado não encontrado!")
             
         return super().form_valid(form)
+
 
 class EnderecoDeleteView(DeleteView):
     model = EnderecoCep

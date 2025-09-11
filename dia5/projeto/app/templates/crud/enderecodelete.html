@@ -5,7 +5,7 @@
 
     <p>Deseja realmente excluir o endereço abaixo?</p>
 
-    <p><strong>{{ object.logradouro }}, {{ object.bairro }}, {{ object.localidade }} - {{ object.uf }} ({{ object.cep }})</strong></p>
+    <p><strong>{{ object.rua }}, {{ object.bairro }}, {{ object.cidade }} - {{ object.estado }} ({{ object.cep }})</strong></p>
 
     <form method="post">
         {% csrf_token %}
