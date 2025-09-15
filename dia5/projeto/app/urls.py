@@ -6,6 +6,6 @@ urlpatterns = [
     path('', views.base, name='base'),
     path('listar/', EnderecoListView.as_view(), name='listar_endereco'),
     path('form/', EnderecoFormView.as_view(), name='form_endereco'),
-    path('delete/<int:pk>/', EnderecoDeleteView.as_view(), name='delete_endereco'),
+    path('delete/', EnderecoDeleteView.as_view(), name='delete_endereco'),
     path('detail/<int:pk>/', EnderecoDetailView.as_view(), name='detail_endereco')
 ]
